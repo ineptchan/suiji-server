@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://${top.inept.datasource.host}:${top.inept.datasource.port}/${top.inept.datasource.database}
+    url: ${top.inept.datasource.url}
     username: ${top.inept.datasource.username}
     password: ${top.inept.datasource.password}
 
