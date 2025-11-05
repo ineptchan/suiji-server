@@ -10,6 +10,6 @@ open class Tag {
     @Column(name = "id", nullable = false)
     open var id: Long? = null
 
-    @Column(name = "name", nullable = false, unique = true, length = 36)
+    @Column(name = "name", nullable = false, unique = true, length = 32)
     open var name: String = ""
 }

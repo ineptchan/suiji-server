@@ -9,7 +9,7 @@ import kotlin.reflect.KClass
 @Target(AnnotationTarget.FIELD)
 @Retention(AnnotationRetention.RUNTIME)
 @Constraint(validatedBy = [])
-@Size(max = 36, message = "valid.tag.name")
+@Size(max = 32, message = "valid.tag.name")
 @NotBlank(message = "valid.tag.name_not_blank")
 annotation class ValidatedTagName(
     val message: String = "valid.common.unknown_error",
