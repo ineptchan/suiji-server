@@ -22,13 +22,13 @@ class CategoryServiceImpl(
     private val messages: MessageSourceAccessor,
     private val categoryRepository: CategoryRepository
 ) : CategoryService {
-    override fun getCategory(queryCategoryDTO: QueryCategoryDTO): Page<Category> {
-        val pageRequest = queryCategoryDTO.toPageRequest()
+    override fun getCategory(dto: QueryCategoryDTO): Page<Category> {
+        val pageRequest = dto.toPageRequest()
 
-        return if (queryCategoryDTO.name.isEmpty()) {
+        return if (dto.name.isEmpty()) {
             categoryRepository.findAll(pageRequest)
         } else {
-            categoryRepository.findByNameContains(queryCategoryDTO.name, pageRequest)
+            categoryRepository.findByNameContains(dto.name, pageRequest)
         }
     }
 

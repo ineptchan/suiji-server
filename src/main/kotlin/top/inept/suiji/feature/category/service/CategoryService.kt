@@ -7,7 +7,7 @@ import top.inept.suiji.feature.category.domain.dto.UpdateCategoryDTO
 import top.inept.suiji.feature.category.domain.entity.Category
 
 interface CategoryService {
-    fun getCategory(queryCategoryDTO: QueryCategoryDTO): Page<Category>
+    fun getCategory(dto: QueryCategoryDTO): Page<Category>
     fun getCategoryById(id: Long): Category
     fun createCategory(dto: CreateCategoryDTO): Category
     fun deleteCategory(id: Long)
