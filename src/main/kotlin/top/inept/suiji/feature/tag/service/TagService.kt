@@ -8,7 +8,7 @@ import top.inept.suiji.feature.tag.domain.dto.UpdateTagDTO
 import top.inept.suiji.feature.tag.domain.entity.Tag
 
 interface TagService {
-    fun getTag(dto: QueryTagDTO): Page<Tag>
+    fun getTags(dto: QueryTagDTO): Page<Tag>
     fun getTagById(id: Long): Tag
     fun createTag(dto: CreateTagDTO): Tag
     fun deleteTag(id: Long)

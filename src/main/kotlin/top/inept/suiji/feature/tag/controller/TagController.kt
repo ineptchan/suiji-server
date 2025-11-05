@@ -24,7 +24,7 @@ class TagController(private val tagService: TagService) {
     @Operation(summary = "获取标签列表")
     @GetMapping
     fun getTag(@Valid dto: QueryTagDTO): ApiResponse<PageResponse<TagVO>> {
-        val tagPage = tagService.getTag(dto)
+        val tagPage = tagService.getTags(dto)
         return tagPage.toPageResponse { it.toTagVO() }.toApiResponse()
     }
 

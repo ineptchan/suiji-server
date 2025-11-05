@@ -22,7 +22,7 @@ class TagServiceImpl(
     private val messages: MessageSourceAccessor,
     private val tagRepository: TagRepository
 ) : TagService {
-    override fun getTag(dto: QueryTagDTO): Page<Tag> {
+    override fun getTags(dto: QueryTagDTO): Page<Tag> {
         val pageRequest = dto.toPageRequest()
 
         return if (dto.name.isEmpty()) {

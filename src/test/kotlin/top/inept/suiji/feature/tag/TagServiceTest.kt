@@ -37,7 +37,7 @@ class TagServiceTest {
     @Order(2)
     fun `test query tag`() {
         service.createTag(CreateTagDTO("Game"))
-        val page = service.getTag(QueryTagDTO(name = ""))
+        val page = service.getTags(QueryTagDTO(name = ""))
         assertThat(page.totalElements).isGreaterThanOrEqualTo(1)
     }
 
