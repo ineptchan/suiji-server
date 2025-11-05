@@ -23,8 +23,8 @@ import top.inept.suiji.feature.category.service.CategoryService
 class CategoryController(private val categoryService: CategoryService) {
     @Operation(summary = "获取类别列表")
     @GetMapping
-    fun getCategory(@Valid queryCategoryDTO: QueryCategoryDTO): ApiResponse<PageResponse<CategoryVO>> {
-        val categoryPage = categoryService.getCategory(queryCategoryDTO)
+    fun getCategory(@Valid dto: QueryCategoryDTO): ApiResponse<PageResponse<CategoryVO>> {
+        val categoryPage = categoryService.getCategory(dto)
         return categoryPage.toPageResponse { it.toCategoryVO() }.toApiResponse()
     }
 
