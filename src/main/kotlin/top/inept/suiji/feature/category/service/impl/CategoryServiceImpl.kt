@@ -59,6 +59,4 @@ class CategoryServiceImpl(
             throw DuplicateException(messages["message.category.duplicate_name"])
         }
     }
-
-
 }
