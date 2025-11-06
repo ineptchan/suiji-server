@@ -34,7 +34,7 @@ class TagServiceImpl(
 
     override fun getTagById(id: Long): Tag {
         val tag = tagRepository.findByIdOrNull(id)
-        if (tag == null) throw EntityNotFoundException(messages["message.tag.not_found"])
+            ?: throw EntityNotFoundException(messages["message.tag.not_found"])
         return tag
     }
 
