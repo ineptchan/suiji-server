@@ -5,6 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Page
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import top.inept.suiji.exception.business.DuplicateException
 import top.inept.suiji.exception.business.EntityNotFoundException
 import top.inept.suiji.extensions.get
@@ -50,6 +51,7 @@ class TagServiceImpl(
         tagRepository.deleteById(id)
     }
 
+    @Transactional
     override fun updateTag(id: Long, dto: UpdateTagDTO): Tag {
         if (!tagRepository.existsById(id)) throw EntityNotFoundException(messages["message.tag.not_found"])
 
