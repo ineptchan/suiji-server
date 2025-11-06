@@ -42,9 +42,9 @@ class TagController(private val tagService: TagService) {
     }
 
     @Operation(summary = "更新标签")
-    @PutMapping
-    fun updateTag(@Valid @RequestBody dto: UpdateTagDTO): ApiResponse<TagVO> {
-        return ApiResponse.success(tagService.updateTag(dto).toTagVO())
+    @PutMapping("/{id}")
+    fun updateTag(@PathVariable id: Long, @Valid @RequestBody dto: UpdateTagDTO): ApiResponse<TagVO> {
+        return ApiResponse.success(tagService.updateTag(id, dto).toTagVO())
     }
 
     @Operation(summary = "删除标签")

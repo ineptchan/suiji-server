@@ -10,8 +10,8 @@ fun CreateTagDTO.toTag() = Tag().also {
     it.name = this.name
 }
 
-fun UpdateTagDTO.toTag() = Tag().also {
-    it.id = this.id
+fun UpdateTagDTO.toTag(id: Long) = Tag().also {
+    it.id = id
     it.name = this.name
 }
 

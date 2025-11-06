@@ -47,8 +47,8 @@ class TagServiceTest {
         val created = service.createTag(CreateTagDTO("Coding"))
 
         val updated = service.updateTag(
+            created.id!!,
             UpdateTagDTO(
-                id = created.id!!,
                 name = "Programming"
             )
         )

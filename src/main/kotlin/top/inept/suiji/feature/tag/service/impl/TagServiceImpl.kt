@@ -50,11 +50,11 @@ class TagServiceImpl(
         tagRepository.deleteById(id)
     }
 
-    override fun updateTag(dto: UpdateTagDTO): Tag {
-        if (!tagRepository.existsById(dto.id)) throw EntityNotFoundException(messages["message.tag.not_found"])
+    override fun updateTag(id: Long, dto: UpdateTagDTO): Tag {
+        if (!tagRepository.existsById(id)) throw EntityNotFoundException(messages["message.tag.not_found"])
 
         try {
-            return tagRepository.save(dto.toTag())
+            return tagRepository.save(dto.toTag(id))
         } catch (ex: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.tag.duplicate_name"])
         }
