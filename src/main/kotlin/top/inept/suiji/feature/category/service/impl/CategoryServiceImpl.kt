@@ -34,7 +34,7 @@ class CategoryServiceImpl(
 
     override fun getCategoryById(id: Long): Category {
         val category = categoryRepository.findByIdOrNull(id)
-        if (category == null) throw EntityNotFoundException(messages["message.category.not_found"])
+            ?: throw EntityNotFoundException(messages["message.category.not_found"])
         return category
     }
 
