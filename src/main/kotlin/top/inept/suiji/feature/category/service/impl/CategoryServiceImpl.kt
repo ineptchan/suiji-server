@@ -50,11 +50,11 @@ class CategoryServiceImpl(
         categoryRepository.deleteById(id)
     }
 
-    override fun updateCategory(dto: UpdateCategoryDTO): Category {
-        if (!categoryRepository.existsById(dto.id)) throw EntityNotFoundException(messages["message.category.not_found"])
+    override fun updateCategory(id: Long, dto: UpdateCategoryDTO): Category {
+        if (!categoryRepository.existsById(id)) throw EntityNotFoundException(messages["message.category.not_found"])
 
         try {
-            return categoryRepository.save(dto.toCategory())
+            return categoryRepository.save(dto.toCategory(id))
         } catch (ex: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.category.duplicate_name"])
         }

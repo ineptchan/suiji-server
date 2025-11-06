@@ -11,5 +11,5 @@ interface CategoryService {
     fun getCategoryById(id: Long): Category
     fun createCategory(dto: CreateCategoryDTO): Category
     fun deleteCategory(id: Long)
-    fun updateCategory(dto: UpdateCategoryDTO): Category
+    fun updateCategory(id: Long, dto: UpdateCategoryDTO): Category
 }

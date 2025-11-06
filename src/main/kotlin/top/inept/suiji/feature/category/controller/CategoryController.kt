@@ -42,9 +42,9 @@ class CategoryController(private val categoryService: CategoryService) {
     }
 
     @Operation(summary = "更新类别")
-    @PutMapping
-    fun updateCategory(@Valid @RequestBody dto: UpdateCategoryDTO): ApiResponse<CategoryVO> {
-        return ApiResponse.success(categoryService.updateCategory(dto).toCategoryVO())
+    @PutMapping("/{id}")
+    fun updateCategory(@PathVariable id: Long, @Valid @RequestBody dto: UpdateCategoryDTO): ApiResponse<CategoryVO> {
+        return ApiResponse.success(categoryService.updateCategory(id, dto).toCategoryVO())
     }
 
     @Operation(summary = "删除类别")

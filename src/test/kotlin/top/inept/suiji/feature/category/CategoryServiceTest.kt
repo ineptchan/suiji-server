@@ -48,8 +48,8 @@ class CategoryServiceTest {
         val created = service.createCategory(CreateCategoryDTO("Coding"))
 
         val updated = service.updateCategory(
+            created.id!!,
             UpdateCategoryDTO(
-                id = created.id!!,
                 name = "Programming"
             )
         )

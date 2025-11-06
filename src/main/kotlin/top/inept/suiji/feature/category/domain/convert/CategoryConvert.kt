@@ -9,8 +9,8 @@ fun CreateCategoryDTO.toCategory() = Category().also {
     it.name = this.name
 }
 
-fun UpdateCategoryDTO.toCategory() = Category().also {
-    it.id = this.id
+fun UpdateCategoryDTO.toCategory(id: Long) = Category().also {
+    it.id = id
     it.name = this.name
 }
 
