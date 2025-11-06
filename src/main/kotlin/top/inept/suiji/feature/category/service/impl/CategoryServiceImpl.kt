@@ -41,7 +41,7 @@ class CategoryServiceImpl(
     override fun createCategory(dto: CreateCategoryDTO): Category {
         return try {
             categoryRepository.save(dto.toCategory())
-        } catch (ex: DataIntegrityViolationException) {
+        } catch (_: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.category.duplicate_name"])
         }
     }
@@ -55,7 +55,7 @@ class CategoryServiceImpl(
 
         try {
             return categoryRepository.save(dto.toCategory(id))
-        } catch (ex: DataIntegrityViolationException) {
+        } catch (_: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.category.duplicate_name"])
         }
     }
