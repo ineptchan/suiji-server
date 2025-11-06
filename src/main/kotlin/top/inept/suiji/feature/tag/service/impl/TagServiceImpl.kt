@@ -41,7 +41,7 @@ class TagServiceImpl(
     override fun createTag(dto: CreateTagDTO): Tag {
         return try {
             tagRepository.save(dto.toTag())
-        } catch (ex: DataIntegrityViolationException) {
+        } catch (_: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.tag.duplicate_name"])
         }
     }
@@ -55,7 +55,7 @@ class TagServiceImpl(
 
         try {
             return tagRepository.save(dto.toTag(id))
-        } catch (ex: DataIntegrityViolationException) {
+        } catch (_: DataIntegrityViolationException) {
             throw DuplicateException(messages["message.tag.duplicate_name"])
         }
     }
