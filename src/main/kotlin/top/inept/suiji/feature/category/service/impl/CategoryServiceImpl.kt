@@ -5,6 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.data.domain.Page
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import top.inept.suiji.exception.business.DuplicateException
 import top.inept.suiji.exception.business.EntityNotFoundException
 import top.inept.suiji.extensions.get
@@ -50,6 +51,7 @@ class CategoryServiceImpl(
         categoryRepository.deleteById(id)
     }
 
+    @Transactional
     override fun updateCategory(id: Long, dto: UpdateCategoryDTO): Category {
         if (!categoryRepository.existsById(id)) throw EntityNotFoundException(messages["message.category.not_found"])
 
