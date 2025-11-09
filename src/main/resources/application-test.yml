@@ -2,7 +2,7 @@ top:
   inept:
     datasource:
       ddl-auto: validate
-      url: jdbc:postgresql://localhost:5432/testdb
+      url: jdbc:postgresql://localhost:5432/test
       username: test
       password: test
     server:
