@@ -2,7 +2,7 @@ package top.inept.suiji.exception.business
 
 import top.inept.suiji.exception.BusinessException
 
-class EntityNotFoundException(
-    code: String = "message.common.entity_not_found",
+class InvalidUuidException(
+    code: String = "message.common.invalid_uuid",
     message: String = code
 ) : BusinessException(code, message)

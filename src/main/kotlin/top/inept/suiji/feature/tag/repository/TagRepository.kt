@@ -9,4 +9,5 @@ import top.inept.suiji.feature.tag.domain.entity.Tag
 @Repository
 interface TagRepository : JpaRepository<Tag, Long> {
     fun findByNameContains(name: String, pageable: Pageable): Page<Tag>
+    fun countByIdIn(ids: List<Long>): Long
 }
