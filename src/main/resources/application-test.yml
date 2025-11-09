@@ -1,14 +1,9 @@
 top:
   inept:
     datasource:
-      ddl-auto: validate
+      ddl-auto: create-drop
       url: jdbc:postgresql://localhost:5432/test
       username: test
       password: test
     server:
       port: 8080
-
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
