@@ -46,6 +46,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       - name: Build and run tests
         env:
           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/testdb
