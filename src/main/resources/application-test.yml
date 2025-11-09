@@ -2,17 +2,13 @@ top:
   inept:
     datasource:
       ddl-auto: validate
-      url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-      username: sa
-      password:
+      url: ${SPRING_DATASOURCE_URL}
+      username: ${SPRING_DATASOURCE_USERNAME}
+      password: ${SPRING_DATASOURCE_PASSWORD}
     server:
       port: 8080
 
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
