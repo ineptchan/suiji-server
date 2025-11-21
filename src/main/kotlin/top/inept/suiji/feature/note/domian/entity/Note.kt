@@ -32,6 +32,7 @@ open class Note {
         joinColumns = [JoinColumn(name = "note_id")],
         inverseJoinColumns = [JoinColumn(name = "tag_id")]
     )
+    @OrderBy("id ASC")
     open var tags: MutableSet<Tag> = mutableSetOf()
 
     @Column(name = "created_at", nullable = false)
